@@ -52,3 +52,4 @@ sed -i "s/API_ENDPOINT/$API_ENDPOINT/g" join-config.yaml
 sed -i "s/CERT_HASH/$CERT_HASH/g" join-config.yaml
 
 aws s3 cp join-config.yaml s3://${S3_BUCKET}/join-config.yaml
+aws s3 cp /home/ubuntu/.kube/config s3://${S3_BUCKET}/config
