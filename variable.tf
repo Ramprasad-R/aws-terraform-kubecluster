@@ -23,9 +23,7 @@ variable "WORKER_INSTANCE_TYPE" {
   default = "t3a.medium"
 }
 
-variable "WORKER_COUNT" {
-  default = 2
-}
+variable "WORKER_COUNT" {}
 
 variable "PRIVATE_KEY" {
   default = "awskey"
