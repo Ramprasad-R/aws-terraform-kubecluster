@@ -11,4 +11,8 @@ resource "aws_instance" "jump-server" {
   vpc_security_group_ids = [aws_security_group.kubernetes-security-group.id, aws_security_group.jumpserver-security-group.id]
 
   key_name = aws_key_pair.kubernete-key.key_name
+
+  iam_instance_profile = aws_iam_instance_profile.k8s-cluster-iam-jumpserver-role-instanceprofile.name
+
+  user_data = data.template_cloudinit_config.jumpserver-cloudinit.rendered
 }

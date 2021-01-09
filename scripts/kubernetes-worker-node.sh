@@ -15,3 +15,6 @@ sudo cp join-config.yaml /etc/kubernetes/node.yaml
 sleep 60
 
 sudo kubeadm join --config /etc/kubernetes/node.yaml
+
+mkdir -p /home/ubuntu/.kube
+aws s3 cp s3://${S3_BUCKET}/config /home/ubuntu/.kube/config

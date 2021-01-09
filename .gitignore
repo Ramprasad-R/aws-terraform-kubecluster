@@ -35,3 +35,4 @@ awskey*
 **.env
 
 s3_bucket_name.txt
+worker_node_count.txt

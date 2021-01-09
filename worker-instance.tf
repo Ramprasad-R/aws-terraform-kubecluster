@@ -26,4 +26,3 @@ resource "aws_instance" "kube-worker" {
   iam_instance_profile = aws_iam_instance_profile.k8s-cluster-iam-worker-role-instanceprofile.name
 }
 
-

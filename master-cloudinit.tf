@@ -16,13 +16,6 @@ data "template_file" "shell-script-master" {
   }
 }
 
-data "template_file" "shell-script-worker" {
-  template = file("scripts/kubernetes-worker-node.sh")
-  vars = {
-    S3_BUCKET = var.S3_BUCKET
-  }
-}
-
 data "template_cloudinit_config" "master-cloudinit" {
   gzip          = false
   base64_encode = false
@@ -42,27 +35,4 @@ data "template_cloudinit_config" "master-cloudinit" {
     content_type = "text/x-shellscript"
     content      = data.template_file.shell-script-master.rendered
   }
-}
-
-
-data "template_cloudinit_config" "worker-cloudinit" {
-  gzip          = false
-  base64_encode = false
-
-  part {
-    filename     = "init.cfg"
-    content_type = "text/cloud-config"
-    content      = data.template_file.init-script.rendered
-  }
-
-  part {
-    content_type = "text/x-shellscript"
-    content      = data.template_file.shell-script-all.rendered
-  }
-
-  part {
-    content_type = "text/x-shellscript"
-    content      = data.template_file.shell-script-worker.rendered
-  }
-
 }
