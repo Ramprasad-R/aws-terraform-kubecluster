@@ -1,6 +1,6 @@
 resource "aws_instance" "jump-server" {
   ami           = var.AMIS[var.AWS_REGION]
-  instance_type = "t2.micro"
+  instance_type = var.JUMPSERVER_INSTANCE_TYPE
   tags = {
     Name = "jump-server"
   }

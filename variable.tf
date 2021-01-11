@@ -8,9 +8,9 @@ variable "AWS_SECRET_KEY" {}
 variable "AMIS" {
   type = map(string)
   default = {
-    us-east-1 = "ami-13be557e"
-    us-west-2 = "ami-06b94666"
-    eu-west-1 = "ami-844e0bf7"
+    us-east-1 = ""
+    us-west-2 = ""
+    eu-west-1 = ""
     us-east-2 = "ami-0a91cd140a1fc148a"
   }
 }
@@ -22,6 +22,11 @@ variable "MASTER_INSTANCE_TYPE" {
 variable "WORKER_INSTANCE_TYPE" {
   default = "t3a.medium"
 }
+
+variable "JUMPSERVER_INSTANCE_TYPE" {
+  default = "t3a.medium"
+}
+
 
 variable "WORKER_COUNT" {}
 
